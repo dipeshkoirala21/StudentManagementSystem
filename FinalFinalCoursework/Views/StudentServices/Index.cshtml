@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h1>Hello Student Service</h1>*@
+
+
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                @Html.ActionLink("View Courses", "Courses", "StudentServices")
+            </li>
+            <li>
+                @Html.ActionLink("View Module - Teacher", "TeacherModules", "StudentServices")
+            </li>
+            <li>
+                @Html.ActionLink("View Teachers", "Teachers", "StudentServices")
+            </li>
+            <li>
+                @Html.ActionLink("View Groups", "Groups", "StudentServices")
+            </li>
+            <li>
+                @Html.ActionLink("View Modules", "Modules", "StudentServices")
+            </li>
+            <li>
+                @Html.ActionLink("View Students", "Students", "StudentServices")
+            </li>
+            <li>
+                @Html.ActionLink("View Group(SEM)-Modules", "GroupModules", "StudentServices")
+            </li>
+
+            @*<li>
+                @Html.ActionLink("View Students Service", "Index", "StudentServices")
+            </li>*@
+
+            <li>
+                @Html.ActionLink("TimeTable", "Index", "TimeTables")
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div style="padding-left:35rem; padding-top:25rem;">
+    <h1>WELCOME TO STUDENT SERVICE!</h1>
+</div>
+
+
+@*<h2>
+        @Html.ActionLink("View Courses", "Courses", "StudentServices")
+
+    </h2>
+
+    <h2>
+        @Html.ActionLink("View Module - Teacher", "TeacherModules", "StudentServices")
+
+    </h2>
+
+    <h2>
+        @Html.ActionLink("View Teachers", "Teachers", "StudentServices")
+
+    </h2>
+    <h2>
+        @Html.ActionLink("View Groups", "Groups", "StudentServices")
+
+    </h2>
+    <h2>
+        @Html.ActionLink("View Modules", "Modules", "StudentServices")
+
+    </h2>
+    <h2>
+        @Html.ActionLink("View Students", "Students", "StudentServices")
+    </h2>
+
+    <h2>
+        @Html.ActionLink("View Group(SEM)-Modules", "GroupModules", "StudentServices")
+    </h2>
+
+    <h2>
+        @Html.ActionLink("TimeTable", "Index", "TimeTables")
+    </h2>*@

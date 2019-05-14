@@ -1,0 +1,25 @@
+﻿@model IEnumerable<FinalFinalCoursework.Models.Attendance>
+
+@using FinalFinalCoursework.Controllers
+
+@{
+    ViewBag.Title = "Show Groups";
+}
+
+<h2>Show Groups</h2>
+<table class="table table-bordered">
+    @foreach (FinalFinalCoursework.Controllers.GroupIdName div in ViewBag.Groups)
+    {
+        <tr>
+            <td>
+                @div.GroupName
+            </td>
+            <td>
+                <div class="btn btn-success">
+                    @Html.ActionLink("See Attendances", "ShowDivisions", new { id = @div.GroupId })
+
+                </div>
+            </td>
+        </tr>
+    }
+</table>

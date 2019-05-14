@@ -1,0 +1,101 @@
+﻿@model FinalFinalCoursework.Models.StudentService
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@*<h2>Edit</h2>*@
+
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                @Html.ActionLink("View Courses", "Index", "Courses")
+            </li>
+            <li>
+                @Html.ActionLink("View Module - Teacher", "Index", "Teacher_Module")
+            </li>
+            <li>
+                @Html.ActionLink("View Teachers", "Index", "CRUDTeacher")
+            </li>
+            <li>
+                @Html.ActionLink("View Groups", "Index", "Groups")
+            </li>
+            <li>
+                @Html.ActionLink("View Modules", "Index", "Modules")
+            </li>
+            <li>
+                @Html.ActionLink("View Students", "Index", "Students")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Students Service", "StudentService", "Admin")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Group(SEM)-Modules", "Index", "GroupModules")
+            </li>
+
+            <li>
+                @Html.ActionLink("TimeTable", "Index", "TimeTables")
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div style="padding-left:20rem;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>StudentService</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.StudentServiceID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+</div>

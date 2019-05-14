@@ -1,0 +1,54 @@
+﻿@model FinalFinalCoursework.Models.Teacher_Module
+@using FinalFinalCoursework.Models
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Teacher_Module</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mod.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mod.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tch.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tch.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("DivisionName")
+        </dt>
+
+        <dd>
+            @{
+                var db = new ApplicationDbContext();
+                var name = db.Groups.Where(s => s.GroupID == Model.GroupID).FirstOrDefault().Name;
+
+
+            }
+            @name
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,70 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+@model PagedList.IPagedList<FinalFinalCoursework.Models.Attendance>
+
+
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "ShowAttendances";
+}
+
+<h2>ShowAttendances</h2>
+<br />
+<br />
+<br />
+@using (Html.BeginForm("ShowAttendances", "Teachers", FormMethod.Post))
+{
+    <div>
+        Search By ModuleName : @Html.TextBox("SearchModuleName")
+        Search By Date : <input type="date" id="SearchDate" name="SearchDate" value="SearchDate">
+
+
+        <input id="Submit" type="submit" value="Filter" />
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Module.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Std.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Module.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Std.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAttendance", new { id = item.AttendanceID })
+                @*
+                    @Html.ActionLink("Details", "Details", new { id=item.StudentAttendenceId }) |
+                     @Html.ActionLink("Delete", "Delete", new { id=item.StudentAttendenceId })
+                *@
+            </td>
+        </tr>
+    }
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model,page => Url.Action("ShowAttendances",new { page }))

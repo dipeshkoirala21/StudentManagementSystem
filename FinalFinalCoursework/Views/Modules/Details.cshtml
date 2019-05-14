@@ -1,0 +1,92 @@
+﻿@model FinalFinalCoursework.Models.Module
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>Details</h2>*@
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                @Html.ActionLink("View Courses", "Index", "Courses")
+            </li>
+            <li>
+                @Html.ActionLink("View Module - Teacher", "Index", "Teacher_Module")
+            </li>
+            <li>
+                @Html.ActionLink("View Teachers", "Index", "CRUDTeacher")
+            </li>
+            <li>
+                @Html.ActionLink("View Groups", "Index", "Groups")
+            </li>
+            <li>
+                @Html.ActionLink("View Modules", "Index", "Modules")
+            </li>
+            <li>
+                @Html.ActionLink("View Students", "Index", "Students")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Students Service", "StudentService", "Admin")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Group(SEM)-Modules", "Index", "GroupModules")
+            </li>
+
+            <li>
+                @Html.ActionLink("TimeTable", "Index", "TimeTables")
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div style="padding-left:20rem">
+    <div>
+        <h4>Module</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Crs.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Crs.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreditHrs)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreditHrs)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sem)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sem)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ModuleID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+
+</div>

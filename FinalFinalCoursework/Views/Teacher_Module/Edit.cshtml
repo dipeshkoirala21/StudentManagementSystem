@@ -1,0 +1,79 @@
+﻿@model FinalFinalCoursework.Models.Teacher_Module
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@*<h2>Edit</h2>*@
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                @Html.ActionLink("View Courses", "Index", "Courses")
+            </li>
+            <li>
+                @Html.ActionLink("View Module - Teacher", "Index", "Teacher_Module")
+            </li>
+            <li>
+                @Html.ActionLink("View Teachers", "Index", "CRUDTeacher")
+            </li>
+            <li>
+                @Html.ActionLink("View Groups", "Index", "Groups")
+            </li>
+            <li>
+                @Html.ActionLink("View Modules", "Index", "Modules")
+            </li>
+            <li>
+                @Html.ActionLink("View Students", "Index", "Students")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Students Service", "StudentService", "Admin")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Group(SEM)-Modules", "Index", "GroupModules")
+            </li>
+
+            <li>
+                @Html.ActionLink("TimeTable", "Index", "TimeTables")
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div style="padding-left:20rem;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Teacher_Module</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.TeacherID)
+
+            @Html.HiddenFor(model => model.ModuleID)
+
+            @Html.HiddenFor(model => model.GroupID)
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FinalFinalCoursework.Models.Teacher_Module>
+@using FinalFinalCoursework.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Teacher Modules</h2>
+
+@*<p>
+        @Html.ActionLink("Assign Modules to Teachers", "AssignModulesToTeachers", "Admin")
+    </p>*@
+
+<p>
+    @Html.ActionLink("Assign Modules to Teachers", "CreateTeacherModule", "StudentServices")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Mod.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tch.Name)
+        </th>
+        <th>
+            @Html.DisplayName("GroupName")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mod.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tch.Name)
+            </td>
+            <td>
+                @{
+                    var db = new ApplicationDbContext();
+                    var name = db.Groups.Where(s => s.GroupID == item.GroupID).FirstOrDefault().Name;
+
+
+                }
+                @name
+            </td>
+
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id1 = item.ModuleID, id2 = item.TeacherID, id3 = item.GroupID })
+            </td>
+        </tr>
+    }
+
+</table>

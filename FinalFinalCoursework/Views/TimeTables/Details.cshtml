@@ -1,0 +1,115 @@
+﻿@model FinalFinalCoursework.Models.TimeTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>Details</h2>*@
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                @Html.ActionLink("View Courses", "Index", "Courses")
+            </li>
+            <li>
+                @Html.ActionLink("View Module - Teacher", "Index", "Teacher_Module")
+            </li>
+            <li>
+                @Html.ActionLink("View Teachers", "Index", "CRUDTeacher")
+            </li>
+            <li>
+                @Html.ActionLink("View Groups", "Index", "Groups")
+            </li>
+            <li>
+                @Html.ActionLink("View Modules", "Index", "Modules")
+            </li>
+            <li>
+                @Html.ActionLink("View Students", "Index", "Students")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Students Service", "StudentService", "Admin")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Group(SEM)-Modules", "Index", "GroupModules")
+            </li>
+
+            <li>
+                @Html.ActionLink("TimeTable", "Index", "TimeTables")
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div style="padding-left:20rem;">
+    <div>
+        <h4>TimeTable</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Group.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Group.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mod.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mod.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tch.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tch.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ClassName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClassType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ClassType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Day)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Day)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TimeTableID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>

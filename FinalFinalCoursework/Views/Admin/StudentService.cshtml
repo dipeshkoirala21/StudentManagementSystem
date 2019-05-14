@@ -1,0 +1,107 @@
+﻿@model IEnumerable<FinalFinalCoursework.Models.StudentService>
+
+@{
+    ViewBag.Title = "Student Service";
+}
+
+@*<h2>Index</h2>*@
+
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                @Html.ActionLink("View Courses", "Index", "Courses")
+            </li>
+            <li>
+                @Html.ActionLink("View Module - Teacher", "Index", "Teacher_Module")
+            </li>
+            <li>
+                @Html.ActionLink("View Teachers", "Index", "CRUDTeacher")
+            </li>
+            <li>
+                @Html.ActionLink("View Groups", "Index", "Groups")
+            </li>
+            <li>
+                @Html.ActionLink("View Modules", "Index", "Modules")
+            </li>
+            <li>
+                @Html.ActionLink("View Students", "Index", "Students")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Students Service", "Index", "StudentServices")
+            </li>
+
+            <li>
+                @Html.ActionLink("View Group(SEM)-Modules", "Index", "GroupModules")
+            </li>
+
+            <li>
+                @Html.ActionLink("TimeTable", "Index", "TimeTables")
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+<div style="padding-left:20rem;">
+
+
+
+    <p>
+        <div class="btn btn-success">
+            @Html.ActionLink("Create New", "Create", "StudentServices")
+
+
+        </div>
+    </p>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    <div class="btn btn-warning">
+                        @Html.ActionLink("Edit", "EditSS", new { id = item.StudentServiceID }) 
+
+                    </div>
+
+                    <div class="btn btn-info">
+                        @Html.ActionLink("Details", "DetailsSS", new { id = item.StudentServiceID }) 
+
+                    </div>
+
+                    <div class="btn btn-danger">
+                        @Html.ActionLink("Delete", "DeleteSS", new { id = item.StudentServiceID })
+
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>
